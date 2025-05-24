@@ -1,0 +1,6 @@
+Flask
+selenium
+chromedriver-autoinstaller
+requests
+pytz
+openai

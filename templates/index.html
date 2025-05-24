@@ -1,0 +1,41 @@
+   <!-- File: templates/index.html -->
+   <!DOCTYPE html>
+   <html>
+   <head>
+       <title>Global News Hub</title>
+       <link rel="stylesheet" href="/static/css/style.css">
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+       <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+       <script src="https://unpkg.com/three-globe@2.24.7/dist/three-globe.min.js"></script>
+   </head>
+   <body>
+       <div class="dashboard-container">
+           <div class="globe-panel" id="globe">
+               <div class="city-selector">
+                   <select id="citySelector">
+                       <option value="all">All Cities</option>
+                       {% for city in cities %}
+                       <option value="{{ city|lower }}">{{ city }}</option>
+                       {% endfor %}
+                   </select>
+               </div>
+           </div>
+           
+           <div class="news-panel">
+               <div class="news-grid">
+                   {% for city in cities %}
+                   <div class="city-card" id="{{ city|lower }}-news">
+                       <h2>{{ city }} News <span class="sentiment-indicator"></span></h2>
+                       <div class="news-items" data-version="0"></div>
+                       <div class="analysis-result" data-version="0"></div>
+                   </div>
+                   {% endfor %}
+               </div>
+           </div>
+       </div>
+
+       <script src="/static/js/globe.js"></script>
+       <script src="/static/js/news-updater.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+   </body>
+   </html>
