@@ -42,7 +42,7 @@ class NewsScraperApp:
         # Initialize OpenAI client
         self.client = OpenAI(
             base_url="https://openrouter.ai/api/v1",
-            api_key="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",
+            api_key="YOUR API",   # Mention your API KEY
             default_headers={
                 "HTTP-Referer": "http://localhost:5000",
                 "X-Title": "News Analyzer"
